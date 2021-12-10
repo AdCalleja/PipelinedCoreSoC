@@ -1,0 +1,46 @@
+
+./tmp/counter.o:     formato del fichero elf32-littleriscv
+
+
+Desensamblado de la sección .text:
+
+00000000 <main>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	000007b7          	lui	a5,0x0
+  10:	0007a783          	lw	a5,0(a5) # 0 <main>
+  14:	00178713          	addi	a4,a5,1
+  18:	000007b7          	lui	a5,0x0
+  1c:	00e7a023          	sw	a4,0(a5) # 0 <main>
+
+00000020 <.L2>:
+  20:	10000793          	addi	a5,zero,256
+  24:	fef42623          	sw	a5,-20(s0)
+  28:	fec42783          	lw	a5,-20(s0)
+  2c:	00078023          	sb	zero,0(a5)
+  30:	fec42783          	lw	a5,-20(s0)
+  34:	00100713          	addi	a4,zero,1
+  38:	00e78023          	sb	a4,0(a5)
+  3c:	fec42783          	lw	a5,-20(s0)
+  40:	00200713          	addi	a4,zero,2
+  44:	00e78023          	sb	a4,0(a5)
+  48:	fec42783          	lw	a5,-20(s0)
+  4c:	00300713          	addi	a4,zero,3
+  50:	00e78023          	sb	a4,0(a5)
+  54:	fec42783          	lw	a5,-20(s0)
+  58:	00400713          	addi	a4,zero,4
+  5c:	00e78023          	sb	a4,0(a5)
+  60:	fec42783          	lw	a5,-20(s0)
+  64:	00500713          	addi	a4,zero,5
+  68:	00e78023          	sb	a4,0(a5)
+  6c:	fec42783          	lw	a5,-20(s0)
+  70:	00600713          	addi	a4,zero,6
+  74:	00e78023          	sb	a4,0(a5)
+  78:	fec42783          	lw	a5,-20(s0)
+  7c:	00700713          	addi	a4,zero,7
+  80:	00e78023          	sb	a4,0(a5)
+  84:	fec42783          	lw	a5,-20(s0)
+  88:	00800713          	addi	a4,zero,8
+  8c:	00e78023          	sb	a4,0(a5)
+  90:	f91ff06f          	jal	zero,20 <.L2>

@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Tue Dec  7 01:58:49 2021
+[*]
+[dumpfile] "/home/adrian/codigo/RISC-V/PPCSoC/RTL/sim/PPCSoC_tb.vcd"
+[dumpfile_mtime] "Tue Dec  7 01:58:11 2021"
+[dumpfile_size] 26276667
+[savefile] "/home/adrian/codigo/RISC-V/PPCSoC/RTL/sim/signals.gtkw"
+[timestart] 180051
+[size] 1920 1001
+[pos] -1 -1
+*-2.888727 180070 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] PPCSoC_tb.
+[treeopen] PPCSoC_tb.PPCTB.
+[treeopen] PPCSoC_tb.PPCTB.DataMemoryPPC.
+[treeopen] PPCSoC_tb.PPCTB.PipelinedCore.
+[sst_width] 276
+[signals_width] 522
+[sst_expanded] 1
+[sst_vpaned_height] 345
+@28
+PPCSoC_tb.PPCTB.clk
+PPCSoC_tb.PPCTB.rst
+PPCSoC_tb.PPCTB.original_rst
+@22
+PPCSoC_tb.PPCTB.leds[7:0]
+PPCSoC_tb.PPCTB.PipelinedCore.PCNext[31:0]
+PPCSoC_tb.PPCTB.PipelinedCore.PC[31:0]
+PPCSoC_tb.PPCTB.PipelinedCore.Instruction[31:0]
+PPCSoC_tb.PPCTB.PipelinedCore.IDInstruction[31:0]
+@28
+PPCSoC_tb.PPCTB.PipelinedCore.Stall
+PPCSoC_tb.PPCTB.PipelinedCore.IFIDFlush
+PPCSoC_tb.PPCTB.PipelinedCore.PCWrite
+PPCSoC_tb.PPCTB.PipelinedCore.IFIDFlushtoStall
+@22
++{sp} PPCSoC_tb.PPCTB.PipelinedCore.RegisterFilePPC.\bank[2][31:0]
++{gp} PPCSoC_tb.PPCTB.PipelinedCore.RegisterFilePPC.\bank[3][31:0]
++{s0} PPCSoC_tb.PPCTB.PipelinedCore.RegisterFilePPC.\bank[8][31:0]
+@24
++{a4} PPCSoC_tb.PPCTB.PipelinedCore.RegisterFilePPC.\bank[14][31:0]
++{a5} PPCSoC_tb.PPCTB.PipelinedCore.RegisterFilePPC.\bank[15][31:0]
+@28
+PPCSoC_tb.PPCTB.mem_address_is_io
+PPCSoC_tb.PPCTB.LEDDriverPPCSoC.sel
+@22
+PPCSoC_tb.PPCTB.mem_wdata[31:0]
+PPCSoC_tb.PPCTB.PipelinedCore.MEMReadData2[31:0]
+PPCSoC_tb.PPCTB.PipelinedCore.StoreFixed[31:0]
+@28
+PPCSoC_tb.PPCTB.DataMemoryPPC.we
+@22
+PPCSoC_tb.PPCTB.mem_address[13:0]
+PPCSoC_tb.PPCTB.LEDDriverPPCSoC.led_state[7:0]
+@28
+PPCSoC_tb.PPCTB.LEDDriverPPCSoC.sel
+@22
+PPCSoC_tb.PPCTB.LEDDriverPPCSoC.wdata[7:0]
+@28
+PPCSoC_tb.PPCTB.LEDDriverPPCSoC.wstrb
+PPCSoC_tb.PPCTB.io_wstrb
+PPCSoC_tb.PPCTB.mem_wstrb
+PPCSoC_tb.PPCTB.mem_address_is_io
+@22
+PPCSoC_tb.PPCTB.DataMemoryPPC.data_out[31:0]
+@28
+PPCSoC_tb.PPCTB.DataMemoryPPC.re
+@22
+PPCSoC_tb.PPCTB.DataMemoryPPC.MemoryByteSel[3:0]
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram0.DOUT[7:0]
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram1.DOUT[7:0]
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram2.DOUT[7:0]
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram3.DOUT[7:0]
+@28
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram3.READ_EN
+@22
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram0.\mem[2][7:0]
+@23
+PPCSoC_tb.PPCTB.DataMemoryPPC.ram1.\mem[2][7:0]
+[pattern_trace] 1
+[pattern_trace] 0
