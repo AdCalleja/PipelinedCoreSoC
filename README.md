@@ -6,6 +6,8 @@
 
 ![Bus Distribution](images/PPCSoCBus.png?raw=true "Bus Distribution and Example")
 
+Bus idea from [BrunoLevys'](https://github.com/BrunoLevy)  [FEMTOSOC](https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/RTL/femtosoc.v)  adapted to my core model and requierements.
+
  ## How to use
 
 ***Warning:*** As the project is being currently modified may be some absolute paths.
