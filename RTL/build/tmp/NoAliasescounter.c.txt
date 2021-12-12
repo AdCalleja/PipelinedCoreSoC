@@ -1,0 +1,128 @@
+
+/home/adrian/codigo/RISC-V/PPCSoC/RTL/build/tmp/counter.c.bin:     formato del fichero binary
+
+
+Desensamblado de la sección .data:
+
+00000000 <.data>:
+   0:	00ff                	0xff
+   2:	0000                	c.unimp
+   4:	ef11                	c.bnez	a4,0x20
+   6:	abcd                	c.j	0x5f8
+   8:	4240                	c.lw	s0,4(a2)
+   a:	0000000f          	fence	unknown,unknown
+	...
+ 7fe:	0000                	c.unimp
+ 800:	000041b7          	lui	gp,0x4
+ 804:	00001137          	lui	sp,0x1
+ 808:	80010113          	addi	sp,sp,-2048 # 0x800
+ 80c:	00010433          	add	s0,sp,zero
+ 810:	04c0006f          	jal	zero,0x85c
+ 814:	fe010113          	addi	sp,sp,-32
+ 818:	00812e23          	sw	s0,28(sp)
+ 81c:	02010413          	addi	s0,sp,32
+ 820:	fe042623          	sw	zero,-20(s0)
+ 824:	0140006f          	jal	zero,0x838
+ 828:	00000013          	addi	zero,zero,0
+ 82c:	fec42783          	lw	a5,-20(s0)
+ 830:	00178793          	addi	a5,a5,1
+ 834:	fef42623          	sw	a5,-20(s0)
+ 838:	fec42703          	lw	a4,-20(s0)
+ 83c:	000f47b7          	lui	a5,0xf4
+ 840:	23f78793          	addi	a5,a5,575 # 0xf423f
+ 844:	fee7d2e3          	bge	a5,a4,0x828
+ 848:	00000013          	addi	zero,zero,0
+ 84c:	00000013          	addi	zero,zero,0
+ 850:	01c12403          	lw	s0,28(sp)
+ 854:	02010113          	addi	sp,sp,32
+ 858:	00008067          	jalr	zero,0(ra)
+ 85c:	fe010113          	addi	sp,sp,-32
+ 860:	00112e23          	sw	ra,28(sp)
+ 864:	00812c23          	sw	s0,24(sp)
+ 868:	02010413          	addi	s0,sp,32
+ 86c:	000027b7          	lui	a5,0x2
+ 870:	00178793          	addi	a5,a5,1 # 0x2001
+ 874:	fef42623          	sw	a5,-20(s0)
+ 878:	fec42783          	lw	a5,-20(s0)
+ 87c:	00078023          	sb	zero,0(a5)
+ 880:	fec42783          	lw	a5,-20(s0)
+ 884:	00100713          	addi	a4,zero,1
+ 888:	00e78023          	sb	a4,0(a5)
+ 88c:	f89ff0ef          	jal	ra,0x814
+ 890:	fec42783          	lw	a5,-20(s0)
+ 894:	00200713          	addi	a4,zero,2
+ 898:	00e78023          	sb	a4,0(a5)
+ 89c:	f79ff0ef          	jal	ra,0x814
+ 8a0:	fec42783          	lw	a5,-20(s0)
+ 8a4:	00400713          	addi	a4,zero,4
+ 8a8:	00e78023          	sb	a4,0(a5)
+ 8ac:	f69ff0ef          	jal	ra,0x814
+ 8b0:	fec42783          	lw	a5,-20(s0)
+ 8b4:	00800713          	addi	a4,zero,8
+ 8b8:	00e78023          	sb	a4,0(a5)
+ 8bc:	f59ff0ef          	jal	ra,0x814
+ 8c0:	fec42783          	lw	a5,-20(s0)
+ 8c4:	01000713          	addi	a4,zero,16
+ 8c8:	00e78023          	sb	a4,0(a5)
+ 8cc:	f49ff0ef          	jal	ra,0x814
+ 8d0:	fec42783          	lw	a5,-20(s0)
+ 8d4:	02000713          	addi	a4,zero,32
+ 8d8:	00e78023          	sb	a4,0(a5)
+ 8dc:	f39ff0ef          	jal	ra,0x814
+ 8e0:	fec42783          	lw	a5,-20(s0)
+ 8e4:	04000713          	addi	a4,zero,64
+ 8e8:	00e78023          	sb	a4,0(a5)
+ 8ec:	f29ff0ef          	jal	ra,0x814
+ 8f0:	fec42783          	lw	a5,-20(s0)
+ 8f4:	f8000713          	addi	a4,zero,-128
+ 8f8:	00e78023          	sb	a4,0(a5)
+ 8fc:	f19ff0ef          	jal	ra,0x814
+ 900:	fec42783          	lw	a5,-20(s0)
+ 904:	fc000713          	addi	a4,zero,-64
+ 908:	00e78023          	sb	a4,0(a5)
+ 90c:	f09ff0ef          	jal	ra,0x814
+ 910:	fec42783          	lw	a5,-20(s0)
+ 914:	fe000713          	addi	a4,zero,-32
+ 918:	00e78023          	sb	a4,0(a5)
+ 91c:	ef9ff0ef          	jal	ra,0x814
+ 920:	fec42783          	lw	a5,-20(s0)
+ 924:	ff000713          	addi	a4,zero,-16
+ 928:	00e78023          	sb	a4,0(a5)
+ 92c:	ee9ff0ef          	jal	ra,0x814
+ 930:	fec42783          	lw	a5,-20(s0)
+ 934:	ff800713          	addi	a4,zero,-8
+ 938:	00e78023          	sb	a4,0(a5)
+ 93c:	ed9ff0ef          	jal	ra,0x814
+ 940:	fec42783          	lw	a5,-20(s0)
+ 944:	ffc00713          	addi	a4,zero,-4
+ 948:	00e78023          	sb	a4,0(a5)
+ 94c:	ec9ff0ef          	jal	ra,0x814
+ 950:	fec42783          	lw	a5,-20(s0)
+ 954:	ffe00713          	addi	a4,zero,-2
+ 958:	00e78023          	sb	a4,0(a5)
+ 95c:	eb9ff0ef          	jal	ra,0x814
+ 960:	fec42783          	lw	a5,-20(s0)
+ 964:	fff00713          	addi	a4,zero,-1
+ 968:	00e78023          	sb	a4,0(a5)
+ 96c:	ea9ff0ef          	jal	ra,0x814
+ 970:	efdff06f          	jal	zero,0x86c
+ 974:	0014                	0x14
+ 976:	0000                	c.unimp
+ 978:	0000                	c.unimp
+ 97a:	0000                	c.unimp
+ 97c:	00527a03          	0x527a03
+ 980:	7c01                	c.lui	s8,0xfffe0
+ 982:	0101                	c.addi	sp,0
+ 984:	07020d1b          	0x7020d1b
+ 988:	0001                	c.addi	zero,0
+ 98a:	0000                	c.unimp
+ 98c:	0010                	0x10
+ 98e:	0000                	c.unimp
+ 990:	001c                	0x1c
+ 992:	0000                	c.unimp
+ 994:	fe6c                	c.fsw	fa1,124(a2)
+ 996:	ffff                	0xffff
+ 998:	0014                	0x14
+ 99a:	0000                	c.unimp
+ 99c:	0000                	c.unimp
+	...

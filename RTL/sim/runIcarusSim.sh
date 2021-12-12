@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#Get path
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 display_help() {
     echo
     echo "Run Icarus Verilog and then open with GTKWave"
@@ -22,6 +23,6 @@ while getopts 'h,D:' args; do
 done
 
 rm *.vvp *.vcd 
-iverilog -o PPCSoC.vvp -I ./../src -D${defines}=1 ./../src/PPCSoC_tb.v
-vvp PPCSoC.vvp
-gtkwave -a signals.gtkw PPCSoC_tb.vcd
+iverilog -o PPCSoC.vvp -I $SCRIPTPATH/../src -D${defines}=1 $SCRIPTPATH/../src/PPCSoC_tb.v
+vvp $SCRIPTPATH/PPCSoC.vvp
+gtkwave -a $SCRIPTPATH/signals.gtkw $SCRIPTPATH/PPCSoC_tb.vcd

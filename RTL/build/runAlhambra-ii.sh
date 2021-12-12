@@ -1,4 +1,9 @@
 #!/bin/bash
+#Get path
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+#Clean
+echo 'DELETING OLD FILES'
+rm $SCRIPTPATH/*.asc $SCRIPTPATH/*.bin $SCRIPTPATH/*.json
 
 display_help() {
     echo
@@ -13,30 +18,28 @@ display_help() {
     exit 1
 }
 
-while getopts 'h,D:' args; do
+while getopts 'h,I:D:' args; do
     case "${args}" in
-        D) defines=${OPTARG};;
-        
+        D) defines=${OPTARG}
+        echo "Defines  = -D${defines}=1"
+        ;;
         h)display_help  # Call your function
           exit 0
           ;;
     esac
 done
 
-echo 'DELETING OLD FILES'
-rm *.asc *.bin *.json
-echo 'Defines  = -D'${defines}'=1'
 #Listen to Verilator Warnings #Deactivated
 #echo 'RUNNING VERILATOR'
-verilator -Wall -cc ./../src/PPCSoC.v --prefix PPC -I./../src/ -D${defines}=1
+#verilator -Wall -cc ./../src/PPCSoC.v --prefix PPC -I./../src/ -D${defines}=1
 #Synthesize
 echo 'RUNNING YOSYS'
-yosys -p "read_verilog -I ./../src/ -D${defines}=1 ./../src/PPCSoC.v; synth_ice40 -json hardware.json" #-q #./../src/PPCSoC.v
+yosys -p "read_verilog -I$SCRIPTPATH/../src/ -D${defines}=1 $SCRIPTPATH/../src/PPCSoC.v; synth_ice40 -json $SCRIPTPATH/hardware.json" #-q #./../src/PPCSoC.v
 # -defer used to specify readmemh filename as a parameter. Doesn't Work well
 #Place and Route
 echo 'RUNNING NEXTNPR'
-nextpnr-ice40 --hx4k --package tq144 --opt-timing --json hardware.json --asc hardware.asc --pcf ./../constrains/alhambra-ii_icestudio.pcf 
+nextpnr-ice40 --hx4k --package tq144 --opt-timing --json $SCRIPTPATH/hardware.json --asc $SCRIPTPATH/hardware.asc --pcf  $SCRIPTPATH/../constrains/alhambra-ii_icestudio.pcf 
 #Program
 echo 'PROGRAMMING FPGA'
-icepack hardware.asc hardware.bin
-iceprog hardware.bin
+icepack $SCRIPTPATH/hardware.asc $SCRIPTPATH/hardware.bin
+iceprog $SCRIPTPATH/hardware.bin

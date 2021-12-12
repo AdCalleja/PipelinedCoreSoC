@@ -14,7 +14,7 @@ reg [7:0] mem [2**(ADDR_WIDTH-3):0];
 
 integer idx;
 initial begin
-    $readmemh("/home/adrian/codigo/RISC-V/PPCSoC/RTL/build/output/data1.txt", mem);
+    $readmemh("../build/output/data1.txt", mem);
     $dumpfile("PPCSoC_tb.vcd");
     //for (idx = 0; idx < 10; idx = idx + 1) $dumpvars(0, mem[idx]);
     $dumpvars(0, mem[2]);

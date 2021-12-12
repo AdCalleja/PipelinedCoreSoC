@@ -1,4 +1,6 @@
 #!/bin/bash
+#Get path
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 display_help() {
     echo
@@ -24,7 +26,10 @@ new_depth() {
 
 while getopts 'h,d:,c:' args; do
     case "${args}" in
-    	c)source=${OPTARG};;
+    	c)source=${OPTARG}
+    	name="$(basename -- $source)"
+    	echo 'Source name: '"$name"
+    	;;
         d)new_depth "${OPTARG}";;
         h)display_help  # Call your function
           exit 0
@@ -39,21 +44,21 @@ if [ $# -eq 0 ]; then
 fi
 
 # Obtain source name to generate files
-lenght=${#source}
-let lenght=lenght-2
-name=${source:0:lenght}
-echo 'Source name: '$name
+#lenght=${#source}
+#let lenght=lenght-2
+#name=${source:0:lenght}
+#echo 'Source name: '$name
 
 # Create folder for compilation files
-if [ ! -d ./tmp ]; then
-  mkdir -p ./tmp;
+if [ ! -d $SCRIPTPATH/tmp ]; then
+  mkdir -p $SCRIPTPATH/tmp;
 else
-  rm -rf ./tmp/*
+  rm -rf $SCRIPTPATH/tmp/*
 fi
-if [ ! -d ./output ]; then
-  mkdir -p ./output;
+if [ ! -d $SCRIPTPATH/output ]; then
+  mkdir -p $SCRIPTPATH/output;
 else
-  rm -rf ./output/*
+  rm -rf $SCRIPTPATH/output/*
 fi
 
 #FIXED Depth (2048) as it modify I/O addr also.
@@ -61,14 +66,14 @@ fi
 #sed "4s/.*/. = $depth; /" baselinker.ld > ./tmp/linker.ld
 
 # Compilation
-riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Wl,-mstrict-align -nostartfiles -nostdlib -nodefaultlibs -save-temps=obj -static -c $name.c -o ./tmp/$name.o
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Wl,-mstrict-align -nostartfiles -nostdlib -nodefaultlibs -save-temps=obj -static -c $source -o $SCRIPTPATH/tmp/$name.o
 #echo "Compilation done"
 # Link
-riscv64-unknown-elf-ld -m elf32lriscv -T baselinker.ld ./tmp/$name.o -o ./tmp/$name.elf
+riscv64-unknown-elf-ld -m elf32lriscv -L $SCRIPTPATH -T $SCRIPTPATH/baselinker.ld $SCRIPTPATH/tmp/$name.o -o $SCRIPTPATH/tmp/$name.elf
 #echo "Linking done"
 
 # Linked ELF to bin
-riscv64-unknown-elf-objcopy -O binary ./tmp/$name.elf ./tmp/$name.bin
+riscv64-unknown-elf-objcopy -O binary $SCRIPTPATH/tmp/$name.elf $SCRIPTPATH/tmp/$name.bin
 
 #All-in-1 with custom crt
 #riscv64-unknown-elf-gcc -g -ffreestanding -O0 -Wl,--gc-sections -nostartfiles -nostdlib -nodefaultlibs -Wl,-T,baselinker.ld crt0.s $name.c -o ./tmp/$name.o
@@ -76,27 +81,27 @@ riscv64-unknown-elf-objcopy -O binary ./tmp/$name.elf ./tmp/$name.bin
 #riscv64-unknown-elf-objcopy -O binary ./tmp/$name.elf ./tmp/$name.bin
 
 # Text and Data memory
-hexdump -ve '1/4 "%08x\n"' -s $depth ./tmp/$name.bin  > ./output/text.txt
-hexdump -ve '1/1 "%02x\n"' -n $depth ./tmp/$name.bin | grep -v 00000000 > ./tmp/$name.ram # 1 Byte
+hexdump -ve '1/4 "%08x\n"' -s $depth $SCRIPTPATH/tmp/$name.bin  > $SCRIPTPATH/output/text.txt
+hexdump -ve '1/1 "%02x\n"' -n $depth $SCRIPTPATH/tmp/$name.bin | grep -v 00000000 > $SCRIPTPATH/tmp/$name.ram # 1 Byte
 
 # Generate 4 files for the 4*8 x depth
-input="./tmp/$name.ram"
+input="$SCRIPTPATH/tmp/$name.ram"
 counter=0
 while IFS= read -r line
 do
     if [ $counter -eq 4 ];then 
         let counter=0 
     fi
-    echo $line >> ./output/data$counter.txt
+    echo $line >> $SCRIPTPATH/output/data$counter.txt
     let counter=counter+1
 done < "$input"
 
 #Show the linked memory
 echo 
 echo The memory is:
-hexdump ./tmp/$name.bin
-readelf -a tmp/$name.elf 
-hexdump tmp/$name.bin 
+hexdump $SCRIPTPATH/tmp/$name.bin
+readelf -a $SCRIPTPATH/tmp/$name.elf 
+hexdump /$SCRIPTPATHtmp/$name.bin 
 
 
 #EXTRA
@@ -104,9 +109,9 @@ hexdump tmp/$name.bin
 #NOT LINKED
 #riscv64-unknown-elf-objdump -d -M no-aliases ./tmp/$name.o > ./tmp/NoAliases$name.txt
 #LINKWS
-riscv64-unknown-elf-objdump -D -b binary -m riscv:rv32 -M no-aliases ./tmp/$name.bin > ./tmp/NoAliases$name.txt
+riscv64-unknown-elf-objdump -D -b binary -m riscv:rv32 -M no-aliases $SCRIPTPATH/tmp/$name.bin > $SCRIPTPATH/tmp/NoAliases$name.txt
 
-cat ./tmp/NoAliases$name.txt
+cat $SCRIPTPATH/tmp/NoAliases$name.txt
 
 
 

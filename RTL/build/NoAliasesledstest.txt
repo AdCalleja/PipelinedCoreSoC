@@ -1,3 +1,0 @@
-
-./tmp/ledstest.o:     formato del fichero elf32-littleriscv
-
