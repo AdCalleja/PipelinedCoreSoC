@@ -17,7 +17,10 @@ A simple bash script has been created to execute the generation of the RTL model
 
 #### Prerequisites
 
-Having installed ([OSS CAD SUITE](https://github.com/YosysHQ/oss-cad-suite-build)
+Having installed [OSS CAD SUITE](https://github.com/YosysHQ/oss-cad-suite-build).
+
+Having installed RISC-V toolchain.
+
 Rules for Alhambra-II (If this is your board)
 
 ~~~bash
