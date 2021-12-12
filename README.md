@@ -29,7 +29,7 @@ sudo sh -c "echo 'ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0660"
 #### Standard Use:
 
 ~~~bash
-./RTL/build/runAlhambra-ii.sh -I ./RTL/src/
+./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh
 ~~~
 
 #### Button:
@@ -39,7 +39,7 @@ Button 1 (SW1) is used as clock.
 *Warning: to reset, Button 2 (SW2) must be pressed before Button 1 (SW1) as reset is designed to be synchronous*
 
 ~~~bash
-./RTL/build/runAlhambra-ii.sh -I ./RTL/src/ -D BUTTON
+./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh -D BUTTON
 ~~~
 
 #### SlowClock:
@@ -47,7 +47,7 @@ Button 1 (SW1) is used as clock.
 1 Clock Cycle per second
 
 ~~~bash
-./RTL/build/runAlhambra-ii.sh -I ./RTL/src/ -D SLOWCLOCK
+./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh -D SLOWCLOCK
 ~~~
 
 ### Compilation and memory generation.
@@ -55,7 +55,7 @@ Button 1 (SW1) is used as clock.
 To compile and generate the memory files  [*runCtoMems.sh*](/RTL/build/runCtoMem.sh). It generates temporary files in */RTL/build/tmp/* and the memory files in  */RTL/build/output/*.
 
 ~~~bash
-./RTL/build/runCtoMems.sh -c <source.c>
+./<downloaded location>/RTL/build/runCtoMems.sh -c <source.c>
 ~~~
 
 The default memory sizes is set to (to fill Alhambra-II FPGA):
