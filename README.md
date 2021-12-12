@@ -29,7 +29,7 @@ sudo sh -c "echo 'ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0660"
 #### Standard Use:
 
 ~~~bash
-./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh
+./<downloaded location>/PipelinedCoreSoC/RTL/build/runAlhambra-ii.sh
 ~~~
 
 #### Button:
@@ -39,7 +39,7 @@ Button 1 (SW1) is used as clock.
 *Warning: to reset, Button 2 (SW2) must be pressed before Button 1 (SW1) as reset is designed to be synchronous*
 
 ~~~bash
-./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh -D BUTTON
+./<downloaded location>/PipelinedCoreSoC/RTL/build/runAlhambra-ii.sh -D BUTTON
 ~~~
 
 #### SlowClock:
@@ -47,7 +47,7 @@ Button 1 (SW1) is used as clock.
 1 Clock Cycle per second
 
 ~~~bash
-./<downloaded location>/PipelinedCoreRICV/RTL/build/runAlhambra-ii.sh -D SLOWCLOCK
+./<downloaded location>/PipelinedCoreSoC/RTL/build/runAlhambra-ii.sh -D SLOWCLOCK
 ~~~
 
 ### Compilation and memory generation.
@@ -55,7 +55,7 @@ Button 1 (SW1) is used as clock.
 To compile and generate the memory files  [*runCtoMems.sh*](/RTL/build/runCtoMem.sh). It generates temporary files in */RTL/build/tmp/* and the memory files in  */RTL/build/output/*.
 
 ~~~bash
-./<downloaded location>/RTL/build/runCtoMems.sh -c <source.c>
+./<downloaded location>/PipelinedCoreSoC/RTL/build/runCtoMems.sh -c <source.c>
 ~~~
 
 The default memory sizes is set to (to fill Alhambra-II FPGA):
@@ -65,10 +65,10 @@ The default memory sizes is set to (to fill Alhambra-II FPGA):
 
 ### Simulating.
 
-To simulate with icarus and GTKWave using  [*PipelinedCore_bench.v*](/RTL/src/PipelinedCore_bench.v) the following script can be used:
+To simulate with icarus and GTKWave using  [*PPCSoC_tb.v*](/RTL/src/PPCSoC_tb.v) the following script can be used:
 
 ~~~bash
-./RTL/sim/runIcarusSim.sh [-D <BUTTON,SLOWCLOCK,DEBUGINSTRUCTION>]
+./<downloaded location>/PipelinedCoreSoC/RTL/sim/runIcarusSim.sh [-D <BUTTON,SLOWCLOCK,DEBUGINSTRUCTION>]
 ~~~
 
 (*DEBUGINSTRUCTION* propagate along all pipeline regs the instruction. It was used clarify while debugging what was the instruction in every step of the Pipeline)
