@@ -14,7 +14,7 @@ reg [7:0] mem [2**(ADDR_WIDTH-3):0];
 
 integer idx;
 initial begin
-    $readmemh("../build/output/data2.txt", mem);
+    $readmemh("../../firmware/build/output/data0.txt", mem);
     $dumpfile("PPCSoC_tb.vcd");
     //for (idx = 4070; idx < 4095; idx = idx + 1) $dumpvars(0, mem[idx]);
     $dumpvars(0, mem[200]);

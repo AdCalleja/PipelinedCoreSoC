@@ -38,7 +38,7 @@ yosys -p "read_verilog -I$SCRIPTPATH/../src/ -D${defines}=1 $SCRIPTPATH/../src/P
 # -defer used to specify readmemh filename as a parameter. Doesn't Work well
 #Place and Route
 echo 'RUNNING NEXTNPR'
-nextpnr-ice40 --hx4k --package tq144 --opt-timing --json $SCRIPTPATH/hardware.json --asc $SCRIPTPATH/hardware.asc --pcf  $SCRIPTPATH/../constrains/alhambra-ii_icestudio.pcf 
+nextpnr-ice40 --hx4k --package tq144 --opt-timing --json $SCRIPTPATH/hardware.json --asc $SCRIPTPATH/hardware.asc --pcf  $SCRIPTPATH/../constrains/alhambra-ii_icestudio.pcf
 #Program
 echo 'PROGRAMMING FPGA'
 icepack $SCRIPTPATH/hardware.asc $SCRIPTPATH/hardware.bin

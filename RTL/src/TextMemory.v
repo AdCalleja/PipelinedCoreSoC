@@ -12,7 +12,7 @@ module TextMemory #(        //width of data bus
 reg [(32-1):0] rom[2**ADDR_WIDTH-1:0];
 initial begin
   //$display(ramN);
-  $readmemh("../build/output/text.txt", rom, TEXT_ADDR_WIDTH[ADDR_WIDTH:2]);
+  $readmemh("../../firmware/build/output/text.txt", rom, TEXT_ADDR_WIDTH[ADDR_WIDTH:2]);
   $dumpfile("PPCSoC_tb.vcd");
   //for (idx = 0; idx < 10; idx = idx + 1) $dumpvars(0, mem[idx]);
 end
