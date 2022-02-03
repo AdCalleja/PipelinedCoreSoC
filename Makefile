@@ -18,9 +18,16 @@ MACRO?=
 #Basic Rules
 .PHONY: all
 all:
-	@echo "make one of /firmware c source files"
-	@echo "Verilog MACRO can be passed as: make MACRO=<BUTTON,SLOWCLOCK,DEBUGINSTRUCTION>"
-	@echo "	make counter.c"
+	@echo "Source file placed in ./firmware is the one to be compiled."
+	@echo ""
+	@echo "Compile source file, synthesize hardware/memories, and load it to Alhambra board."
+	@echo "	make alhambra [MACRO=<BUTTON,SLOWCLOCK,DEBUGINSTRUCTION>]"
+	@echo ""
+	@echo "Compile and get source binaries"
+	@echo "	make firmware"
+	@echo ""
+	@echo "Clean SW and HW temporary files and outputs"
+	@echo "	make clean"
 
 .PHONY: help
 help: all
